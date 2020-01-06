@@ -157,7 +157,7 @@ bindsym $mod+r mode "Resize Window"
 exec_always "~/.config/polybar/launch.sh"
 
 # Start compositor
-exec "picom -f"
+exec_always "picom -f"
 
 # Start xbindkeys for volume and brightness controls
 exec xbindkeys &
@@ -170,3 +170,42 @@ exec wal -i $(cat ~/.cache/wal/wal) -q
 #######################################################
 
 
+
+#######################################################
+# Start of i3-gaps commands                           #
+#######################################################
+for_window [class=".*"] border pixel 3
+gaps inner 10
+
+
+#######################################################
+# End of i3-gaps commands                             #
+#######################################################
+
+#######################################################
+# Start of Window theming                             #
+#######################################################
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $fg       $bg
+client.focused_inactive $bg     $bg     $fg  $fg       $bg
+client.unfocused        $bg     $bg     $fg  $fg       $bg
+client.urgent           $bg     $bg     $fg  $fg       $bg
+client.placeholder      $bg     $bg     $fg  $fg       $bg
+
+client.background       $bg
+
+
+#######################################################
+# End of Window theming                               #
+#######################################################
+
+
+ 
