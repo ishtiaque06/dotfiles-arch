@@ -2,6 +2,24 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+######################################################
+# Table of Contents
+#
+# 1. Global stuff
+# 2. Window-specific keybindings
+# 3. Workspace keybindings
+# 4. Misc. i3 commands
+# 5. Rezise mode
+# 6. Start-up commands
+# 7. i3-gaps commands
+# 8. Window theming
+######################################################
+
+
+#######################################################
+# 1. Global stuff                                     #
+#######################################################
+
 # Set windows key as the default modifier
 set $mod Mod4
 
@@ -9,20 +27,12 @@ set $mod Mod4
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:Roboto 15
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
-
 
 #######################################################
-# Window-specific keybindings                         #
+# 2. Window-specific keybindings                      #
 #######################################################
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -66,12 +76,9 @@ bindsym $mod+d focus child
 # End Window-specific keybindings                     #
 #######################################################
 
-# Launch Rofi - an application launcher
-bindsym $mod+space exec "rofi -show run -theme flamingo &"
-
 
 #######################################################
-# Workspace keybindings                               #
+# 3. Workspace keybindings                            #
 #######################################################
 
 # Define names for default workspaces for which we configure key bindings later on.
@@ -117,18 +124,35 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 
 #######################################################
-# Misc. i3 commands                                   #
+# 4. Misc. i3 commands                                #
 #######################################################
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-msg exit"
 
 # lock computer and put it to sleep
 bindsym $mod+shift+s exec "i3lock && systemctl suspend"
+
+# Launch Rofi - an application launcher
+bindsym $mod+space exec "rofi -show run -theme flamingo &"
+
+#######################################################
+# End Misc. i3 commands                               #
+#######################################################
+
+
+########################################################
+# 5. Resize Mode                                       #
+########################################################
 
 # resize window (you can also use the mouse for that)
 mode "Resize Window" {
@@ -158,7 +182,12 @@ mode "Resize Window" {
 bindsym $mod+r mode "Resize Window"
 
 #######################################################
-#      Start-up commands go in this section           #
+# End Resize Mode                                     #
+#######################################################
+
+
+#######################################################
+# 6. Start-up commands                                #
 #######################################################
 
 # Start polybar
@@ -173,6 +202,11 @@ exec xbindkeys &
 # Start pywal for theme-matching with the wallpaper
 exec wal -i $(cat ~/.cache/wal/wal) -q
 
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+
 #######################################################
 # End of start-up commands                            #
 #######################################################
@@ -180,19 +214,21 @@ exec wal -i $(cat ~/.cache/wal/wal) -q
 
 
 #######################################################
-# Start of i3-gaps commands                           #
+# 7. i3-gaps commands                                 #
 #######################################################
 for_window [class=".*"] border pixel 3
+
 gaps inner 10
 
+#######################################################
+# End i3-gaps commands                                #
+#######################################################
+
 
 #######################################################
-# End of i3-gaps commands                             #
+# 8. Window theming                                   #
 #######################################################
 
-#######################################################
-# Start of Window theming                             #
-#######################################################
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use 
 # from the generated scheme.
@@ -210,10 +246,7 @@ client.placeholder      $bg     $bg     $fg  $fg       $bg
 
 client.background       $bg
 
-
 #######################################################
 # End of Window theming                               #
 #######################################################
-
-
  
