@@ -72,7 +72,7 @@ font-3 = DejaVu Sans Mono:size=35;4
 ;   modules-right = ipc clock
 modules-left = i3
 modules-center = date
-modules-right = alsa cpu battery
+modules-right = alsa memory battery
 
 ; modules-right-background = #bbddee
 
@@ -155,7 +155,7 @@ full-at = 98
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 label-full = %percentage%
-
+format-charging-suffix = ◤
 format-charging-foreground = ${colors.background}
 format-charging-background = ${colors.foreground}
 
@@ -176,6 +176,8 @@ ramp-capacity-10 = 
 
 format-discharging-foreground = ${colors.background}
 format-discharging-background = ${colors.foreground}
+format-discharging-suffix = ◤
+
 
 label-discharging-foreground = ${colors.background}
 label-discharging-background = ${colors.foreground}
@@ -243,9 +245,12 @@ interval = 5
 format-volume-prefix = ◢
 format-volume-prefix-foreground = ${colors.foreground}
 format-volume-prefix-background = ${colors.translucent}
-format-volume = "<ramp-volume> <label-volume> "
+format-volume = "<ramp-volume>"
 format-volume-foreground = ${colors.background}
 format-volume-background = ${colors.foreground}
+format-volume-suffix = ◤
+format-volume-suffix-foreground = ${colors.foreground}
+format-volume-suffix-background = ${colors.translucent}
 
 ; format for muted icon
 format-muted = <label-muted>
@@ -254,6 +259,10 @@ format-muted-background = ${colors.foreground}
 format-muted-prefix = ◢
 format-muted-prefix-foreground = ${colors.foreground}
 format-muted-prefix-background = ${colors.translucent}
+format-muted-suffix = ◤
+format-muted-suffix-foreground = ${colors.foreground}
+format-muted-suffix-background = ${colors.translucent}
+
 
 label-muted = " "
 
@@ -288,6 +297,21 @@ label =  %percentage%%
 ; Specify intervals to check processor load
 interval = 10.0
 
+[module/memory]
+type = internal/memory
+
+interval = 3
+
+format = "   <label> "
+
+format-prefix = ◢
+format-prefix-background = ${colors.translucent}
+format-prefix-foreground = ${colors.foreground}
+
+format-foreground = ${colors.background}
+format-background = ${colors.foreground}
+
+
 [module/date]
 type = internal/date
 
@@ -297,7 +321,7 @@ interval = 1.0
 
 ; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
-date = %Y-%m-%d%
+date = %a, %b %e%
 
 ; Optional time format
 time = %H:%M
