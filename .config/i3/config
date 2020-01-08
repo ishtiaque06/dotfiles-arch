@@ -193,14 +193,14 @@ bindsym $mod+r mode "Resize Window"
 # Start polybar
 exec_always "~/.config/polybar/launch.sh"
 
-# Start compositor
-exec_always "picom -f"
-
 # Start xbindkeys for volume and brightness controls
 exec xbindkeys &
 
 # Start pywal for theme-matching with the wallpaper
 exec wal -i $(cat ~/.cache/wal/wal) -q
+
+# Start compositor
+ exec_always "picom -f &"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
