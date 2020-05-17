@@ -130,6 +130,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# start Brave browser
+bindsym $mod+Shift+Return exec brave
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
@@ -144,6 +147,11 @@ bindsym $mod+shift+s exec "i3lock && systemctl suspend"
 
 # Launch Rofi - an application launcher
 bindsym $mod+space exec "rofi -show run -theme flamingo &"
+
+exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
+
+# Start redshift
+exec redshift &
 
 #######################################################
 # End Misc. i3 commands                               #
@@ -200,7 +208,7 @@ exec xbindkeys &
 exec wal -i $(cat ~/.cache/wal/wal) -q
 
 # Start compositor
-# exec_always "picom -f &"
+exec_always "picom -f &"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
