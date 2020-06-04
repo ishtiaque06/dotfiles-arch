@@ -12,6 +12,7 @@ alias cd-df="cd ~/projects/dotfiles-arch"
 alias i3config="vim ~/projects/dotfiles-arch/.config/i3/config"
 alias kittyconfig="vim ~/projects/dotfiles-arch/.config/kitty/kitty.conf"
 alias pbarconfig="vim ~/projects/dotfiles-arch/.config/polybar/config"
+alias bashconfig="vim ~/projects/dotfiles-arch/.bashrc"
 
 # Virtualenvwrapper stuff
 PATH=$PATH:~/.local/bin
@@ -71,3 +72,14 @@ test_and_show_cov() {
 	pytest --cov=. --cov-report html:htmlcov
 	xdg-open htmlcov/index.html
 }
+
+# add flutter command to PATH
+export PATH="$PATH:~/flutter/flutter/bin"
+export DART_SDK=$HOME/flutter/flutter/bin/cache/dart-sdk/bin
+export PATH="$PATH:$DART_SDK"
+# export PATH="$PATH:~/flutter/flutter/bin/cache/dart-sdk/bin"
+export PATH="$PATH:~/AndroidStudio/android-studio/bin" 
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$ANDROID_HOME/cmdline-tools/tools/bin:$PATH
+alias run_emulator="flutter emulators --launch nexus"
+export PATH="$PATH:/home/aishtiaque/aur_packages/vscodium-bin/src/vscodium-bin/bin"

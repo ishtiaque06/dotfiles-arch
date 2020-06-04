@@ -131,7 +131,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Return exec i3-sensible-terminal
 
 # start Brave browser
-bindsym $mod+Shift+Return exec brave
+bindsym $mod+Shift+Return exec firefox 
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -151,7 +151,10 @@ bindsym $mod+space exec "rofi -show run -theme flamingo &"
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 
 # Start redshift
-exec redshift &
+exec redshift -P -O 4000 &
+
+# Realod ~/.Xresources for urxvt
+exec xrdb -merge ~/.Xresources &
 
 #######################################################
 # End Misc. i3 commands                               #
