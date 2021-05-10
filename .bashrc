@@ -83,3 +83,5 @@ export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$ANDROID_HOME/cmdline-tools/tools/bin:$PATH
 alias run_emulator="flutter emulators --launch nexus"
 export PATH="$PATH:/home/aishtiaque/aur_packages/vscodium-bin/src/vscodium-bin/bin"
+export PATH="$PATH:~/Downloads/geckodriver" 
+export PATH="$PATH:~/phantomjs-bin/bin/"
